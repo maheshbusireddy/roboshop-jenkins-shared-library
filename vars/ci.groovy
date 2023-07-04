@@ -1,5 +1,5 @@
 def call() {
-    
+
  pipeline {
     agent{
         lable 'wprkstation'
@@ -31,4 +31,5 @@ def call() {
          }
        }
     }
+}
 }
