@@ -1,25 +1,29 @@
 def call() {
-pipeline{
+  pipeline {
+
     agent {
         label 'workstation'
     }
-    stages('Complie/Build') {
-        steps{
+
+    stages {
+
+      stage('Complie/Build') {
+        steps {
             echo 'compile'
         }
     }
     stage('unit test') {
-        steps{
+        steps {
             echo 'compile'
         }
     }
     stage('qauality control') {
-        steps{ 
+        steps { 
             echo 'Qauality control'
         }
     }
     satge('upload Code the Centralized Repo') {
-        steps{
+        steps {
             echo 'upload'
         }
     }
