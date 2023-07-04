@@ -1,7 +1,7 @@
 def call() {
 
  pipeline {
-    agent{
+    agent any {
         lable 'workstation'
     }
 
