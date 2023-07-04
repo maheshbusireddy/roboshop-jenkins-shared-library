@@ -1,32 +1,34 @@
 def call() {
-  pipeline {
-
-    agent {
-        label 'workstation'
+    
+ pipeline {
+    agent{
+        lable 'wprkstation'
     }
 
     stages {
+    
+       stage('Compile/Build') {
+         steps {
+            echo 'compile'
+         }
+       }
 
-      stage('Complie/Build') {
-        steps {
-            echo 'compile'
-        }
-    }
-    stage('unit test') {
-        steps {
-            echo 'compile'
-        }
-    }
-    stage('qauality control') {
-        steps { 
-            echo 'Qauality control'
-        }
-    }
-    satge('upload Code the Centralized Repo') {
-        steps {
+       stage('Unit tests') {
+         steps {
+            echo 'unit tests'
+         }
+       }
+
+       stage('Quality Control') {
+         steps {
+            echo 'quality control'
+         }
+       }
+
+       stage('Upload Code To The Centralized Repo') {
+         steps {
             echo 'upload'
-        }
+         }
+       }
     }
 }
-
-  }
