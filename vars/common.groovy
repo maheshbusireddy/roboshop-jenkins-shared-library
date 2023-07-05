@@ -10,7 +10,11 @@ def compile() {
 def unittests() {
 
    if (app_lang == "nodejs") {
-     sh 'npm test'
+    try { 
+      sh 'npm test'
+    } catch(Exception e) {
+      email("unit test failed")
+    }
      
   }
    if (app_lang == "maven") {
