@@ -14,6 +14,6 @@ def unittests() {
      sh 'echo Test Cases'
   }
    if (app_lang == "maven") {
-     sh 'mvn package'
+     sh 'mvn test'
   } 
 }
