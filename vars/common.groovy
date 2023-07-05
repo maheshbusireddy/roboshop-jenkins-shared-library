@@ -13,7 +13,7 @@ def unittests() {
      sh 'npm test'
    }
      
-  }
+  
    if (app_lang == "maven") {
      sh 'mvn test'
   } 
