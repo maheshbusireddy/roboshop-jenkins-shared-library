@@ -32,7 +32,8 @@ def call() {
           steps {
             withAWSParameterStore(credentialsId: '', naming: 'relative', path: '/service', recursive: true, regionName: 'eu-west-1') 
             {
-              echo "${env.SONAR_QUBE}"
+
+              echo "${env.SONARQUBE_USER}"
             }
             sh "sonar-scanner -Dsonar.host.url=http://172.31.95.25:9000 -Dsonar.login=${SONAR_USER} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.projectKey=cart"
 
