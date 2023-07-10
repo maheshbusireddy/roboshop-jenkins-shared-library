@@ -8,6 +8,7 @@ def call() {
       stage('Checkout') {
         cleanWs()
         git branch: 'main', url: "https://github.com/maheshbusireddy/${component}.git"
+        sh 'env'
        }
 
        stage('Compile/Build'){
@@ -24,7 +25,6 @@ def call() {
           //sh "sonar-scanner -Dsonar.host.url=http://172.31.95.25:9000 -Dsonar.login=${SONAR_USER} -Dsonar.password=${SONAR_PASS} -Dsonar.projectKey=${component} -Dsonar.qualitygate.wait=true ${SONAR_EXTRA_OPT}"
             sh 'echo sonar scan'
             }
-
          }
     
        stage('Upload Code To The Centralized Repo') {
