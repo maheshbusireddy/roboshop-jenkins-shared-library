@@ -2,6 +2,13 @@ def call() {
   if (!env.SONAR_EXTRA_OPT) {
     env.SONAR_EXTRA_OPT = " "
   }
+
+   if(!env.TAG_NAME) {
+    env.PUSH_CODE = "false"
+   } else {
+    env.PUSH_CODE ="true"
+   }
+
  try {
    node('workstation') {
 
@@ -27,9 +34,12 @@ def call() {
             }
          }
     
-       stage('Upload Code To The Centralized Repo') {
+        if(env.PUSH_CODE == "true") {
+           stage('Upload Code To The Centralized Repo') {
         echo 'upload'
        }
+        }
+       
          }
        } catch(Exception e) {
          common.email("Failed")
