@@ -28,9 +28,9 @@ def email(email_note) {
   mail bcc: '', body: "Job Failed - ${JOB_BASE_NAME}\nJenkins Url - ${JOB_URL}", cc: '', from: 'maheswarbusireddy@gmail.com', replyTo: '', subject: "Jenkins Job Failed - ${JOB_BASE_NAME}", to: 'maheswarbusireddy@gmail.com'
 }
 def artifactpush() {
-  
+   sh "echo ${TAG_NAME} >VERSION"
    if (app_lang == "nodejs") {
-     sh "zip -r cart-${TAG_NAME}.zip node_modules server.js"
+     sh "zip -r cart-${TAG_NAME}.zip node_modules server.js VERSION"
    }
    sh 'ls -l'
 }
