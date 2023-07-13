@@ -11,7 +11,7 @@ def compile() {
 def unittests() {
 
    if (app_lang == "nodejs") {
-     sh 'npm test || true'
+     sh 'npm test [|| true'
    }
      
   
@@ -26,4 +26,11 @@ def unittests() {
 
 def email(email_note) {
   mail bcc: '', body: "Job Failed - ${JOB_BASE_NAME}\nJenkins Url - ${JOB_URL}", cc: '', from: 'maheswarbusireddy@gmail.com', replyTo: '', subject: "Jenkins Job Failed - ${JOB_BASE_NAME}", to: 'maheswarbusireddy@gmail.com'
+}
+def artifactpush() {
+  
+   if (app_lang == "nodejs") {
+     zip -r cart-${TAG_NAME}.zip node_modules server.js
+   }
+   sh 'ls -l'
 }

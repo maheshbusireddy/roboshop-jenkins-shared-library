@@ -36,7 +36,7 @@ def call() {
     
         if(env.PUSH_CODE == "true") {
            stage('Upload Code To The Centralized Repo') {
-        echo 'upload'
+            common.artifactpush()
        }
         }
        
