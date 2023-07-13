@@ -38,3 +38,4 @@ def artifactpush() {
    wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: "${NEXUS_PASS}", var: 'SECRET']]]) {
   sh "curl -v -u ${NEXUS_USER}:${NEXUS_PASS} --upload-file ${component}-${TAG_NAME}.zip http://172.31.94.53:8081/repository/{component}/${component}-${TAG_NAME}.zip"
 }
+}
